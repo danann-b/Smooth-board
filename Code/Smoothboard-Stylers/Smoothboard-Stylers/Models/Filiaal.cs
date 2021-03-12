@@ -10,10 +10,16 @@ namespace Smoothboard_Stylers.Models
     {
         [Key]
         [Range(1, 11)]
-
+        [Required]
         public int Filiaal_Id { get; set; }
+
+        [Required]
         public string Naam { get; set; }
+
+        [Required]
         public string Adres { get; set; }
+
+        [Required]
         public string Woonplaats { get; set; }
     }
 }

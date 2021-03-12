@@ -13,18 +13,21 @@ namespace Smoothboard_Stylers.Models
         /// Surfboard_Id met een range van 1 tot 11
         /// </summary>
         [Range(1, 11)]
+        [Required]
         public int Surfboard_Id { get; set; }
 
         /// <summary>
         /// Filiaal_Id met een range van 1 tot 11
         /// </summary>
         [Range(1, 11)]
+        [Required]
         public int Filiaal_Id { get; set; }
 
         /// <summary>
         /// Aantal  _Id met een range van 1 tot 11
         /// </summary>
         [Range(1, 999)]
+        [Required]
         public int Aantal { get; set; }
 
     }
