@@ -9,17 +9,17 @@ namespace Smoothboard_Stylers.Models
     public class Filiaal
     {
         [Key]
-        [Range(1, 11)]
+        [Range(1, 99)]
         [Required]
         public int Filiaal_Id { get; set; }
 
-        [Required]
+        [Required, StringLength(30)]
         public string Naam { get; set; }
 
-        [Required]
+        [Required, StringLength(50)]
         public string Adres { get; set; }
 
-        [Required]
+        [Required, StringLength(50)]
         public string Woonplaats { get; set; }
     }
 }

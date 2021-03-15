@@ -11,10 +11,12 @@ namespace Smoothboard_Stylers.Models
     {
         [key]
         [Required]
+        [Range(1, 99)]
         public int Surfboard_Id { get; set; }
 
         [ForeignKey("Contact")]
         [Required]
+        [Range(1, 99)]
         public int Contact_Id { get; set; }
     }
 }

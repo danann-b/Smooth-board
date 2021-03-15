@@ -9,7 +9,7 @@ namespace Smoothboard_Stylers.Models
 {
     public class Gebruiker : IdentityUser
     {
-        [Required]
+        [Required, StringLength(30)]
         public string Naam { get; set; }
     }
 }

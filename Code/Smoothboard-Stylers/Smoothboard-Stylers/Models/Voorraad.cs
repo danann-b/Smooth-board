@@ -12,14 +12,14 @@ namespace Smoothboard_Stylers.Models
         /// <summary>
         /// Surfboard_Id met een range van 1 tot 11
         /// </summary>
-        [Range(1, 11)]
+        [Range(1, 99)]
         [Required]
         public int Surfboard_Id { get; set; }
 
         /// <summary>
         /// Filiaal_Id met een range van 1 tot 11
         /// </summary>
-        [Range(1, 11)]
+        [Range(1, 99)]
         [Required]
         public int Filiaal_Id { get; set; }
 

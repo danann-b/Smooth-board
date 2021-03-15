@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Smoothboard_Stylers.Data;
 
 namespace Smoothboard_Stylers
 {
@@ -19,14 +20,14 @@ namespace Smoothboard_Stylers
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<SmoothboardDbContext>(options => 
-            options.UseSqlServer(Configuration.GetConnectionString("SmoothboardStylersDatabase")));
+            services.AddDbContext<SmoothBoardDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("SmoothBoardDbContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -8,11 +8,19 @@ namespace Smoothboard_Stylers.Models
 {
     public class Materiaal
     {
+
+        /// <summary>
+        /// Materiaal id met een maximum hoeveelheid van 99
+        /// </summary>
         [key]
         [Required]
+        [Range(1, 99)]
         public int Materiaal_Id { get; set; }
 
-        [Required]
-        public int Naam { get; set; }
+        /// <summary>
+        /// En een naam van het materiaal met een maximum lengte van 30
+        /// </summary>
+        [Required, StringLength(30)]
+        public string Naam { get; set; }
     }
 }

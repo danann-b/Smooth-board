@@ -8,11 +8,10 @@ namespace Smoothboard_Stylers.Models
 {
     public class Contact
     {
-        [key]
-        [Required]
+        [Key, Required, Range(1, 99)]
         public int Contact_Id { get; set; }
 
-        [Required]
+        [Required, StringLength(30)]
         public string Email { get; set; }
 
         [Required]
