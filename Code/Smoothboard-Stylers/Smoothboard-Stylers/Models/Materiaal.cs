@@ -12,9 +12,7 @@ namespace Smoothboard_Stylers.Models
         /// <summary>
         /// Materiaal id met een maximum hoeveelheid van 99
         /// </summary>
-        [key]
-        [Required]
-        [Range(1, 99)]
+        [Key, Required, Range(1, 99)]
         public int Materiaal_Id { get; set; }
 
         /// <summary>

@@ -12,9 +12,7 @@ namespace Smoothboard_Stylers.Models
         /// <summary>
         /// Primary key is Surrboard_Id
         /// </summary>
-        [Key]
-        [Required]
-        [Range(1, 99)]
+        [Key, Required, Range(1, 99)]
         public int Surfboard_Id { get; set; }
 
         /// <summary>
@@ -32,22 +30,19 @@ namespace Smoothboard_Stylers.Models
         /// <summary>
         /// Materiaal_Id is de ForeignKey naar Materiaal
         /// </summary>
-        [ForeignKey("Materiaal")]
-        [Required, Range(1, 99)]
+        [ForeignKey("Materiaal"), Required, Range(1, 99)]
         public int Materiaal_Id { get; set; }
 
         /// <summary>
         /// Is het prijs van het surfboard in decimalen van 0,01 tot 9999,99
         /// </summary>
-        [Required]
-        [Range(0.01, 9999.99)]
-        public Decimal Prijs { get; set; }
+        [Required, Range(0.01, 9999.99)]
+        public double Prijs { get; set; }
 
         /// <summary>
         /// Is de Url van de foto met een maximum lengte van 255 char
         /// </summary>
-        [Required]
-        [StringLength(255)]
+        [Required, StringLength(255)]
         public string  FotoUrl { get; set; }
 
     }

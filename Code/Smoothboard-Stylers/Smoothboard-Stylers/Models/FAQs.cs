@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace Smoothboard_Stylers.Models
 {
+    [Keyless]
     public class FAQs
     { 
-        [Key,Required, Range(1, 99)]
+        [Required, Range(1, 99)]
         public int FAQ_Id { get; set; }
 
         [Required, StringLength(255)]
