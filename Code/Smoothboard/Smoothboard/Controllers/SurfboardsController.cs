@@ -26,6 +26,12 @@ namespace Smoothboard.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Overzicht()
+        {
+            var applicationDbContext = _context.Surfboard.Include(s => s.Materiaal);
+            return View(await applicationDbContext.ToListAsync());
+        }
+
         // GET: Surfboards/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -48,7 +54,7 @@ namespace Smoothboard.Controllers
         // GET: Surfboards/Create
         public IActionResult Create()
         {
-            ViewData["MateriaalId"] = new SelectList(_context.Set<Materiaal>(), "Id", "Id");
+            ViewData["MateriaalId"] = new SelectList(_context.Set<Materiaal>(), "Id", "Naam");
             return View();
         }
 
@@ -65,7 +71,7 @@ namespace Smoothboard.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MateriaalId"] = new SelectList(_context.Set<Materiaal>(), "Id", "Id", surfboard.MateriaalId);
+            ViewData["MateriaalList"] = new SelectList(_context.Set<Materiaal>(), "Id", "Naam", surfboard.MateriaalId);
             return View(surfboard);
         }
 
@@ -82,7 +88,7 @@ namespace Smoothboard.Controllers
             {
                 return NotFound();
             }
-            ViewData["MateriaalId"] = new SelectList(_context.Set<Materiaal>(), "Id", "Id", surfboard.MateriaalId);
+            ViewData["MateriaalList"] = new SelectList(_context.Set<Materiaal>(), "Id", "Naam", surfboard.MateriaalId);
             return View(surfboard);
         }
 
@@ -118,7 +124,7 @@ namespace Smoothboard.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MateriaalId"] = new SelectList(_context.Set<Materiaal>(), "Id", "Id", surfboard.MateriaalId);
+            ViewData["MateriaalList"] = new SelectList(_context.Set<Materiaal>(), "Id", "Naam", surfboard.MateriaalId);
             return View(surfboard);
         }
 
