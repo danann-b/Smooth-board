@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,8 @@ using Smoothboard.Models;
 
 namespace Smoothboard.Controllers
 {
+    [Authorize]
+
     public class SurfboardsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -54,7 +57,7 @@ namespace Smoothboard.Controllers
         // GET: Surfboards/Create
         public IActionResult Create()
         {
-            ViewData["MateriaalId"] = new SelectList(_context.Set<Materiaal>(), "Id", "Naam");
+            ViewData["MateriaalList"] = new SelectList(_context.Set<Materiaal>(), "Id", "Naam");
             return View();
         }
 
