@@ -15,5 +15,9 @@ namespace Smoothboard.Data
         }
         public DbSet<Smoothboard.Models.Surfboard> Surfboard { get; set; }
         public DbSet<Smoothboard.Models.Materiaal> Materiaal { get; set; }
+        public DbSet<Contact> Contact { get; set; }
+        public DbSet<Smoothboard.Models.Interesse> Interesse { get; set; }
+
+
     }
 }
