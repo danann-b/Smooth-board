@@ -29,6 +29,8 @@ namespace Smoothboard.Controllers
             return View(await applicationDbContext.ToListAsync());
         }
 
+        //Zorgt ervoor als iemand niet is ingelogd. Dat ze nog steeds de overzicht pagina kunnen zien.
+        [AllowAnonymous]
         public async Task<IActionResult> Overzicht()
         {
             var applicationDbContext = _context.Surfboard.Include(s => s.Materiaal);

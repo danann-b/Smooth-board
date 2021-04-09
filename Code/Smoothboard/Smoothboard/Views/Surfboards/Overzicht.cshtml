@@ -57,48 +57,8 @@
 
     </div>
 </div>
-<hr>
 
-<thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Naam)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Beschrijving)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Prijs)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FotoUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Materiaal)
-        </th>
-        <th></th>
-    </tr>
-</thead>
-<tbody>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naam)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Beschrijving)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prijs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FotoUrl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Materiaal.Naam)
-            </td>
-        </tr>
-    }
-</tbody>
+
+
+
 

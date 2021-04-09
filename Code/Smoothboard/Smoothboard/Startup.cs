@@ -55,6 +55,17 @@ namespace Smoothboard
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.Use(async (context, next) =>
+            {
+                var url = context.Request.Path.Value;
+                if (url.Contains("Register"))
+                {
+                    context.Response.Redirect("/");
+                }
+                await next();
+            });
+
+
 
             app.UseAuthentication();
             app.UseAuthorization();
