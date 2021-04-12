@@ -18,24 +18,26 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Surfboards" asp-action="Overzicht">Shop</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Faqs" asp-action="VraagEnAntwoord">Faqs</a>
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Surfboards" asp-action="Overzicht">Shop</a>
-                        </li>
-
 
                         @if (User.Identity.IsAuthenticated)
                         {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Beheer</a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Surfboards" asp-action="Index">Surfboards</a>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Materialen" asp-action="Index">Materialen</a>
-                            </div>
-                        </li>
-                        } 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Beheer</a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Surfboards" asp-action="Index">Surfboards</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Materialen" asp-action="Index">Materialen</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Interesses" asp-action="Index">Interesse</a>
+                                </div>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>

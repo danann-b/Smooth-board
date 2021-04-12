@@ -162,5 +162,55 @@ namespace Smoothboard.Controllers
         {
             return _context.Interesse.Any(e => e.Id == id);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateFromDetails(int SurfboardId, string Email)
+        {
+            var surfboard = _context.Surfboard.Find(SurfboardId);
+
+            if (surfboard != null)
+            {
+                // Zoek het contact en als het nog niet bestaat dan toevoegen
+                var contact = _context.Contact.Where(contact => contact.Email == Email).FirstOrDefault();
+                if (contact == null)
+                {
+                    contact = new Contact
+                    {
+                        Email = Email
+                    };
+                    _context.Contact.Add(contact);
+                    await _context.SaveChangesAsync();
+                }
+
+                // Check of er al een interesse record bestaat
+                // met dezelfde ContactId en SurfboardId
+                var interesse = _context.Interesse
+                    .Where(interesse =>
+                        interesse.ContactId == contact.Id
+                        && interesse.SurfboardId == surfboard.Id)
+                    .FirstOrDefault();
+
+                // Maak een nieuwe Interesse aan
+                if (interesse == null)
+                {
+                    interesse = new Interesse
+                    {
+                        ContactId = contact.Id,
+                        SurfboardId = surfboard.Id
+                    };
+                    _context.Interesse.Add(interesse);
+                    await _context.SaveChangesAsync();
+                }
+
+                // Vul TempData["InteresseCreated"] om aan te geven dat het gelukt is
+                TempData["InteresseCreated"] = true;
+
+                // Keer terug naar het Details scherm van het Surfboard
+                return RedirectToAction("Details", "Surfboards", new { Id = SurfboardId });
+            }
+            // Surfboard bestaat niet, return NotFound()
+            return NotFound();
+        }
     }
 }
