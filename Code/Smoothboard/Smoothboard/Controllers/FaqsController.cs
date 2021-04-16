@@ -20,9 +20,15 @@ namespace Smoothboard.Controllers
         }
 
         // GET: Faqs
+        public async Task<IActionResult> FAQs()
+        {
+            return View(await _context.Faq.ToListAsync());
+        }
+
+        // GET: Faqs
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Faqs.ToListAsync());
+            return View(await _context.Faq.ToListAsync());
         }
 
         // GET: Faqs/Details/5
@@ -33,18 +39,24 @@ namespace Smoothboard.Controllers
                 return NotFound();
             }
 
-            var faqs = await _context.Faqs
+            var faq = await _context.Faq
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (faqs == null)
+            if (faq == null)
             {
                 return NotFound();
             }
 
-            return View(faqs);
+            return View(faq);
         }
 
         // GET: Faqs/Create
         public IActionResult Create()
+        {
+            return View();
+        }
+
+        // GET: Faqs/Create
+        public IActionResult CreateAntwoord()
         {
             return View();
         }
@@ -54,15 +66,15 @@ namespace Smoothboard.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Vraag,Antwoord")] Faqs faqs)
+        public async Task<IActionResult> Create([Bind("Id,Vraag,Antwoord")] Faq faq)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(faqs);
+                _context.Add(faq);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(faqs);
+            return View(faq);
         }
 
         // GET: Faqs/Edit/5
@@ -73,12 +85,12 @@ namespace Smoothboard.Controllers
                 return NotFound();
             }
 
-            var faqs = await _context.Faqs.FindAsync(id);
-            if (faqs == null)
+            var faq = await _context.Faq.FindAsync(id);
+            if (faq == null)
             {
                 return NotFound();
             }
-            return View(faqs);
+            return View(faq);
         }
 
         // POST: Faqs/Edit/5
@@ -86,9 +98,9 @@ namespace Smoothboard.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Vraag,Antwoord")] Faqs faqs)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Vraag,Antwoord")] Faq faq)
         {
-            if (id != faqs.Id)
+            if (id != faq.Id)
             {
                 return NotFound();
             }
@@ -97,12 +109,12 @@ namespace Smoothboard.Controllers
             {
                 try
                 {
-                    _context.Update(faqs);
+                    _context.Update(faq);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FaqsExists(faqs.Id))
+                    if (!FaqExists(faq.Id))
                     {
                         return NotFound();
                     }
@@ -113,7 +125,7 @@ namespace Smoothboard.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(faqs);
+            return View(faq);
         }
 
         // GET: Faqs/Delete/5
@@ -124,14 +136,14 @@ namespace Smoothboard.Controllers
                 return NotFound();
             }
 
-            var faqs = await _context.Faqs
+            var faq = await _context.Faq
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (faqs == null)
+            if (faq == null)
             {
                 return NotFound();
             }
 
-            return View(faqs);
+            return View(faq);
         }
 
         // POST: Faqs/Delete/5
@@ -139,15 +151,15 @@ namespace Smoothboard.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var faqs = await _context.Faqs.FindAsync(id);
-            _context.Faqs.Remove(faqs);
+            var faq = await _context.Faq.FindAsync(id);
+            _context.Faq.Remove(faq);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool FaqsExists(int id)
+        private bool FaqExists(int id)
         {
-            return _context.Faqs.Any(e => e.Id == id);
+            return _context.Faq.Any(e => e.Id == id);
         }
     }
 }

@@ -2,12 +2,12 @@
 
 namespace Smoothboard.Data.Migrations
 {
-    public partial class Faqs : Migration
+    public partial class FAQs : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Faqs",
+                name: "Faq",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -17,14 +17,14 @@ namespace Smoothboard.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Faqs", x => x.Id);
+                    table.PrimaryKey("PK_Faq", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Faqs");
+                name: "Faq");
         }
     }
 }

@@ -10,8 +10,8 @@ using Smoothboard.Data;
 namespace Smoothboard.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210412113033_Faqs")]
-    partial class Faqs
+    [Migration("20210412120629_FAQs")]
+    partial class FAQs
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -236,7 +236,7 @@ namespace Smoothboard.Data.Migrations
                     b.ToTable("Contact");
                 });
 
-            modelBuilder.Entity("Smoothboard.Models.Faqs", b =>
+            modelBuilder.Entity("Smoothboard.Models.Faq", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -251,7 +251,7 @@ namespace Smoothboard.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Faqs");
+                    b.ToTable("Faq");
                 });
 
             modelBuilder.Entity("Smoothboard.Models.Interesse", b =>

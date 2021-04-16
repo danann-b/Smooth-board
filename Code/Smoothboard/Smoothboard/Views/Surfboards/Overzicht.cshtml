@@ -6,59 +6,23 @@
 
 <h1>Overzicht</h1>
 
-<div class="container">
-    <!--Flexbox met wrap zodat het responive is-->
-    <div class="d-flex flex-wrap">
-        <div class="p-2">
-            <div class="product-foto">
-                <!--Hier komt een foto van het product-->
-                @Html.DisplayNameFor(model => model.FotoUrl)
-            </div>
-            <div class="product-content">
-                <!--Hier komt de naam van het product-->
-                <h3 class="title">@Html.DisplayNameFor(model => model.Naam)</h3>
-                <!--Hier komt een beschrijving van het product-->
-                <p>@Html.DisplayNameFor(model => model.Beschrijving)</p>
-                <p>@Html.DisplayNameFor(model => model.Materiaal)</p>
-                <!--Hier komt de prijs te staan-->
-                <span>@Html.DisplayNameFor(model => model.Prijs)</span>
-            </div>
-        </div>
-        <div class="p-2">
-            <div class="product-foto">
-                <!--Hier komt een foto van het product-->
-                @Html.DisplayNameFor(model => model.FotoUrl)
-            </div>
-            <div class="product-content">
-                <!--Hier komt de naam van het product-->
-                <h3 class="title">@Html.DisplayNameFor(model => model.Naam)</h3>
-                <!--Hier komt een beschrijving van het product-->
-                <p>@Html.DisplayNameFor(model => model.Beschrijving)</p>
-                <p>@Html.DisplayNameFor(model => model.Materiaal)</p>
-                <!--Hier komt de prijs te staan-->
-                <span>@Html.DisplayNameFor(model => model.Prijs)</span>
-            </div>
-        </div>
-        <div class="p-2">
-            <div class="product-foto">
-                <!--Hier komt een foto van het product-->
-                @Html.DisplayNameFor(model => model.FotoUrl)
-            </div>
-            <div class="product-content">
-                <!--Hier komt de naam van het product-->
-                <h3 class="title">@Html.DisplayNameFor(model => model.Naam)</h3>
-                <!--Hier komt een beschrijving van het product-->
-                <p>@Html.DisplayNameFor(model => model.Beschrijving)</p>
-                <p>@Html.DisplayNameFor(model => model.Materiaal)</p>
-                <!--Hier komt de prijs te staan-->
-                <span>@Html.DisplayNameFor(model => model.Prijs)</span>
-            </div>
-        </div>
+<br />
 
-    </div>
-</div>
-
-
+@foreach (var item in Model)
+{
+        <td>
+            @Html.DisplayFor(modelItem => item.Naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Beschrijving)
+        </td>
+        <td>
+            @Html.DisplayFor(ModelItem => item.Materiaal)
+        </td>
+        <td>
+            @Html.DisplayFor(ModelItem => item.Prijs)
+        </td>
+}
 
 
 

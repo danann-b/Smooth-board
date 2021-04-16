@@ -234,7 +234,7 @@ namespace Smoothboard.Data.Migrations
                     b.ToTable("Contact");
                 });
 
-            modelBuilder.Entity("Smoothboard.Models.Faqs", b =>
+            modelBuilder.Entity("Smoothboard.Models.Faq", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -249,7 +249,7 @@ namespace Smoothboard.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Faqs");
+                    b.ToTable("Faq");
                 });
 
             modelBuilder.Entity("Smoothboard.Models.Interesse", b =>

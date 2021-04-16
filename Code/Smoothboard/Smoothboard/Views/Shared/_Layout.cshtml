@@ -23,7 +23,7 @@
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Surfboards" asp-action="Overzicht">Shop</a>
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Faqs" asp-action="VraagEnAntwoord">Faqs</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Faqs" asp-action="FAQs">FAQs</a>
                             </div>
                         </li>
 
@@ -35,6 +35,7 @@
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Surfboards" asp-action="Index">Surfboards</a>
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Materialen" asp-action="Index">Materialen</a>
                                     <a class="nav-link text-dark" asp-area="" asp-controller="Interesses" asp-action="Index">Interesse</a>
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Faqs" asp-action="Create">FAQs</a>
                                 </div>
                             </li>
                         }
@@ -49,7 +50,6 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2021 - Smoothboard - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
