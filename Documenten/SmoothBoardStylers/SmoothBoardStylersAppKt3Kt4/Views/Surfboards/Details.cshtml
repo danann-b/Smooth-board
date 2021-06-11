@@ -1,4 +1,4 @@
-﻿@model Smoothboard.Models.Surfboard
+﻿@model SmoothBoardStylersApp.Models.Surfboard
 
 @{
     ViewData["Title"] = "Details";
@@ -10,35 +10,37 @@
     <h4>Surfboard</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Naam)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Naam)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Beschrijving)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Beschrijving)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Prijs)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Prijs)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FotoUrl)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FotoUrl)
-        </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Materiaal)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Materiaal)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Materiaal.Naam)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Prijs)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Prijs)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FotoUrl)
+        </dt>
+        <dd class="col-sm-10">
+            <p>@Html.DisplayFor(model => model.FotoUrl)</p>
+            <img class="board" src="~/img/@Model.FotoUrl" alt="@Model.Naam" />
         </dd>
     </dl>
 </div>
